@@ -46,7 +46,7 @@ import (
 	"strings"
 	"sync"
 	"time"
-	"unicode"
+	// "unicode"
 
 	consts "github.com/bishopfox/sliver/client/constants"
 	"github.com/bishopfox/sliver/protobuf/dnspb"
