@@ -18,6 +18,7 @@ package encoders
 
 import (
 	"encoding/base32"
+	"strings"
 )
 
 // Base32EncoderID - EncoderID
@@ -38,5 +39,6 @@ func (e Base32) Encode(data []byte) []byte {
 
 // Decode - Base32 Decode
 func (e Base32) Decode(data []byte) ([]byte, error) {
-	return sliverBase32.DecodeString(string(data))
+	// return sliverBase32.DecodeString(string(data))
+	return sliverBase32.DecodeString(strings.ToLower(string(data)))
 }
