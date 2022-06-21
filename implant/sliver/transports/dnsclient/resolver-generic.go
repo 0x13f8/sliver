@@ -95,12 +95,12 @@ func (r *GenericResolver) a(domain string) ([]byte, time.Duration, error) {
 	if err != nil {
 		return nil, rtt, err
 	}
-	if resp.Rcode != dns.RcodeSuccess {
-		// {{if .Config.Debug}}
-		log.Printf("[dns] error response status: %v", resp.Rcode)
-		// {{end}}
-		return nil, rtt, ErrInvalidRcode
-	}
+	// if resp.Rcode != dns.RcodeSuccess {
+	// 	// {{if .Config.Debug}}
+	// 	log.Printf("[dns] error response status: %v", resp.Rcode)
+	// 	// {{end}}
+	// 	return nil, rtt, ErrInvalidRcode
+	// }
 	records := []byte{}
 	for _, answer := range resp.Answer {
 		switch answer := answer.(type) {
@@ -137,12 +137,12 @@ func (r *GenericResolver) txt(domain string) ([]byte, time.Duration, error) {
 	if err != nil {
 		return nil, rtt, err
 	}
-	if resp.Rcode != dns.RcodeSuccess {
-		// {{if .Config.Debug}}
-		log.Printf("[dns] error response status: %v", resp.Rcode)
-		// {{end}}
-		return nil, rtt, ErrInvalidRcode
-	}
+	// if resp.Rcode != dns.RcodeSuccess {
+	// 	// {{if .Config.Debug}}
+	// 	log.Printf("[dns] error response status: %v", resp.Rcode)
+	// 	// {{end}}
+	// 	return nil, rtt, ErrInvalidRcode
+	// }
 
 	records := ""
 	for _, answer := range resp.Answer {
