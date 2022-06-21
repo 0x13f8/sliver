@@ -433,11 +433,11 @@ func (s *SliverDNSServer) decodeSubdata(subdomain string) (*dnspb.DNSMessage, ui
 // Returns the most likely -> least likely encoders, if decoding fails fallback to
 // the next encoder until we run out of options.
 func (s *SliverDNSServer) determineLikelyEncoders(subdata string) []encoders.Encoder {
-	for _, char := range subdata {
-		if unicode.IsUpper(char) {
-			return []encoders.Encoder{encoders.Base58{}, encoders.Base32{}}
-		}
-	}
+	// for _, char := range subdata {
+	// 	if unicode.IsUpper(char) {
+	// 		return []encoders.Encoder{encoders.Base58{}, encoders.Base32{}}
+	// 	}
+	// }
 	return []encoders.Encoder{encoders.Base32{}, encoders.Base58{}}
 }
 

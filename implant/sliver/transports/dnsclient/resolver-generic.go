@@ -97,9 +97,9 @@ func (r *GenericResolver) a(domain string) ([]byte, time.Duration, error) {
 	}
 	if resp.Rcode != dns.RcodeSuccess {
 		// {{if .Config.Debug}}
-		log.Printf("[dns] error response status: %v; ignoring an error", resp.Rcode)
+		log.Printf("[dns] error response status: %v", resp.Rcode)
 		// {{end}}
-		// return nil, rtt, ErrInvalidRcode
+		return nil, rtt, ErrInvalidRcode
 	}
 	records := []byte{}
 	for _, answer := range resp.Answer {
@@ -139,9 +139,9 @@ func (r *GenericResolver) txt(domain string) ([]byte, time.Duration, error) {
 	}
 	if resp.Rcode != dns.RcodeSuccess {
 		// {{if .Config.Debug}}
-		log.Printf("[dns] error response status: %v; ignoring an error", resp.Rcode)
+		log.Printf("[dns] error response status: %v", resp.Rcode)
 		// {{end}}
-		// return nil, rtt, ErrInvalidRcode
+		return nil, rtt, ErrInvalidRcode
 	}
 
 	records := ""
